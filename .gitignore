@@ -1,0 +1,20 @@
+# Ignore executables / objects / assembly
+bebop
+*.asm
+!src/boilerplate/*.asm
+*.o
+*.out
+*.log
+core
+*.output
+
+# Temp spec file
+spec.txt
+
+# Local script files
+*.sh
+*exp*
+
+# Editor files
+*.un~
+tags

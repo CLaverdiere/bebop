@@ -1,0 +1,7 @@
+# Ignore test executables.
+*tests
+
+# Ignore experimental tests
+*exp*.bb
+*joe*
+*raymond*

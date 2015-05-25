@@ -1,0 +1,7 @@
+# Ignore final executable
+Compiler
+*.o
+
+# Ignore intermediate files
+*.tab.*
+scanner.cc

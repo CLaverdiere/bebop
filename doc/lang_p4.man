@@ -1,0 +1,175 @@
+.TH Bebop 7 "February 2015" "CMSC 431" "User Manuals"
+.SH NAME
+Bebop \- A classy language created for the compilers class at UMBC.
+.SH DESCRIPTION
+Bebop resembles a mix of Python and Ruby. Bebop is compiled
+to the x86_64 assembly language with the
+.B bebop
+compiler, from which an executable program can be assembled and linked using
+.BR nasm (1)
+and
+.BR gcc (1)
+respectively.
+.P
+This manual is ordered roughly by usefulness. There's an examples section at
+the end if you just feel like skipping to that.
+.SH LANGUAGE
+.SS Language Grammar
+The following statements are supported. Statements can have multiple newlines
+between them.
+.TP
+.B type variable
+Declare variable as the given type.
+.TP
+.B variable = expression
+Assign the value of expression to variable. Variables must be declared before
+assigned.
+.TP
+.B say expression
+Print the value of an expression with a newline. Non-newline version
+.B write
+also available.
+.SS Type System
+.TP
+Bebop supports types for integers, floating point numbers, booleans, and strings.
+Keywords:
+.B bool, float, int, string
+.P
+Bebop only supports static typing. Currently, there is no support for type
+promotion, and Bebop will laugh at you for mismatching types.
+.SS Boolean expressions and relations
+Boolean variables can be assigned expressions of
+.B true
+or
+.B false.
+Internally, these are represented as 1s and 0s, and will be printed out as such.
+.TP
+Boolean expressions can currently compare integers and floats, with the following syntax:
+.B value <operator> value
+.TP
+Supported operators are (and behave as expected):
+.B ==, !=, <, <=, >, >=
+.P
+To combine boolean relations, logical operators
+.B not, and,
+and
+.B or
+may be used, in order of highest to lowest precedence.
+.SS Program Control
+Both if and while control structures are supported. Each control block must be
+closed with a
+.B fin
+keyword.
+.TP
+.B If statements
+if boolean_expression
+  statements
+.br
+fin
+.TP
+.B While loops
+while boolean_expression
+  statements
+.br
+fin
+.SS Printing Output
+To print the value of an expression, use
+.B say expression.
+The variant
+.B write
+excludes the newline from printing.
+.SS User Input
+The keywords
+.B inp_int
+and
+.B inp_float
+are reserved for user input. When encountered, the compiler calls scanf
+internally and captures input as the resulting expression.
+.SS Comments
+the '<>' symbol starts a comment, and discards the rest of the line. Comments
+can be placed anywhere in the line, but do not span multiple lines.
+.SS Mathematical Operations
+The following mathematical operations are supported in decreasing order of
+precedence. Expressions may be constructed from signed 64 bit integers, or
+other mathematical expressions.
+.TP
+.B (expression)
+Parentheses. Override precedence of operators outside the parentheses.
+.TP
+.B expression ** expression
+Integer exponentiation. Returns 1 if exponent is less than 1.
+.TP
+.B -expression
+Negation.
+.TP
+.B expression * expression
+Multiplication. Same precedence as division and modulus.
+.TP
+.B expression / expression
+Division. Same precedence as multiplication and modulus.
+.TP
+.B expression % expression
+Modulus. Same precedence as multiplication and division.
+.TP
+.B expression + expression
+Addition. Same precedence as subtraction.
+.TP
+.B expression - expression
+Subtraction. Same precedence as addition.
+.SS Reserved Keywords
+.TP
+The following are keywords used by the compiler and must not be used as
+variables:
+all type keywords, input keywords, main, fmt, [cfs]{number}, intpow
+.SH EXAMPLES
+.SS
+Simple assignment / arithmetic:
+int spike
+.br
+int faye
+.br
+spike = 7
+.br
+faye = 4
+.br
+say spike + faye
+.SS
+User input:
+float ein
+.br
+float ed
+.br
+ein = inp_float + 7.0
+.br
+ed = ein * inp_float ** inp_float / 4.0
+.br
+say ein - ed
+.br
+.SS
+Conditionals:
+int jet
+.br
+bool flag
+.br
+jet = 5
+.br
+flag = true
+.br
+if (jet != 5) and flag
+.br
+  say "jet is not 5."
+.br
+fin
+.br
+.SH LIMITATIONS
+.IP \(bu
+A
+.B newline
+is required after each program statement.
+.IP \(bu
+Variables may not be named as reserved keywords.
+.IP \(bu
+While booleans are represented as 1s and 0s, they cannot be mixed with
+integers.
+.SH AUTHOR
+Chris Laverdiere <chlaver1@umbc.edu>

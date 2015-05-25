@@ -1,0 +1,8 @@
+Python testing docs:
+https://docs.python.org/2/library/unittest.html
+
+Flex / Bison docs:
+http://dinosaur.compilertools.net/
+
+Scope Techniques:
+http://www.cs.cornell.edu/courses/cs412/2008sp/lectures/lec12.pdf
