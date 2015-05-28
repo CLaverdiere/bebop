@@ -1,11 +1,19 @@
 Building
 ========
 
+Dependencies: bison, flex, nasm
+
 Build the compiler:
-  $ make
+
+```sh
+make
+```
 
 Build executable from source file source.bb:
-  $ make source.out
+
+```sh
+make source.out
+```
 
 Directory Structure
 ===================
@@ -26,7 +34,10 @@ Testing
 
 To run all tests, placing executables in the tests/ directory, objects in bin/
 and assembly in asm/:
-  $ make tests
+
+```sh
+make tests
+```
 
 Coding style:
 =============
@@ -34,7 +45,6 @@ Coding style:
 This compiler is a hybrid of C and C++. It started out as mostly C, but I
 brought in some C++ as it went along, to keep the code complexity down.
 
-Author
-======
+---
 
 Chris Laverdiere, 2015
