@@ -3,7 +3,7 @@ Bebop 7 "February 2015" "CMSC 431" "User Manuals"
 NAME
 ====
 
-Bebop \- A classy language created for the compilers class at UMBC.
+Bebop \- A classy language created for a compilers class.
 
 DESCRIPTION
 ===========
