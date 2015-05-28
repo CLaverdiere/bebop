@@ -19,9 +19,13 @@ Directory Structure
 ===================
 
 asm/   : Generated assembly
+
 bin/   : Binary / Object files
+
 doc/   : Documentation
+
 src/   : Source files
+
 tests/ : Tests
 
 Documentation
