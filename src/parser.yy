@@ -32,7 +32,7 @@
 void yyerror(const char *msg);
 
 // Scanner routine defined by Flex.
-int yylex();
+extern "C" int yylex();
 
 // Global symbol table structure.
 std::vector<symbol_table*> sym_tbls;

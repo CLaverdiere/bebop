@@ -8,6 +8,8 @@
 
 extern int line_num;
 
+extern "C" int yylex();
+
 %}
 
 %%
